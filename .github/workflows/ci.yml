@@ -17,3 +17,9 @@ jobs:
 
       - name: Test Step
         run: echo "Tests passed!"
+
+      - name: Slack Notification
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"✅ Build Successful for devops-webapp!"}' \
+          ${{ secrets.SLACK_WEBHOOK }}
